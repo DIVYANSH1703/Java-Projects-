@@ -3,53 +3,58 @@ public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        String[] banner = {
+        String[] O = getO();
+        String[] P = getP();
+        String[] S = getS();
 
-                String.join("   ",
-                        " ***** ",
-                        " ***** ",
-                        " ***** ",
-                        " ***** "),
-
-                String.join("   ",
-                        "*     *",
-                        "*     *",
-                        "*     *",
-                        "*      "),
-
-                String.join("   ",
-                        "*     *",
-                        "*     *",
-                        "*     *",
-                        "*      "),
-
-                String.join("   ",
-                        "*     *",
-                        "*     *",
-                        " ***** ",
-                        " ***** "),
-
-                String.join("   ",
-                        "*     *",
-                        "*     *",
-                        "*      ",
-                        "     * "),
-
-                String.join("   ",
-                        "*     *",
-                        "*     *",
-                        "*      ",
-                        "     * "),
-
-                String.join("   ",
-                        " ***** ",
-                        " ***** ",
-                        "*      ",
-                        " ***** ")
-        };
-
-        for (String line : banner) {
-            System.out.println(line);
+        for (int i = 0; i < O.length; i++) {
+            System.out.println(
+                    String.join("   ",
+                            O[i],
+                            O[i],
+                            P[i],
+                            S[i]
+                    )
+            );
         }
+    }
+
+    // Letter O
+    public static String[] getO() {
+        return new String[]{
+                " ***** ",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                " ***** "
+        };
+    }
+
+    // Letter P
+    public static String[] getP() {
+        return new String[]{
+                " ***** ",
+                "*     *",
+                "*     *",
+                " ***** ",
+                "*      ",
+                "*      ",
+                "*      "
+        };
+    }
+
+    // Letter S
+    public static String[] getS() {
+        return new String[]{
+                " ***** ",
+                "*      ",
+                "*      ",
+                " ***** ",
+                "      *",
+                "      *",
+                " ***** "
+        };
     }
 }
