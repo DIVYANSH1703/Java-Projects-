@@ -1,54 +1,68 @@
+import java.util.*;
 
 public class OOPSBannerApp {
 
+    static class CharacterPatternMap {
+        char character;
+        String[] pattern;
+
+        CharacterPatternMap(char character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
+        }
+
+        char getCharacter() {
+            return character;
+        }
+
+        String[] getPattern() {
+            return pattern;
+        }
+    }
+
     public static void main(String[] args) {
 
-        String[] banner = {
+        List<CharacterPatternMap> list = new ArrayList<>();
 
-                String.join("   ",
-                        " ***** ",
-                        " ***** ",
-                        " ***** ",
-                        " ***** "),
+        list.add(new CharacterPatternMap('O', new String[]{
+                " *** ",
+                "*   *",
+                "*   *",
+                "*   *",
+                " *** "
+        }));
 
-                String.join("   ",
-                        "*     *",
-                        "*     *",
-                        "*     *",
-                        "*      "),
+        list.add(new CharacterPatternMap('P', new String[]{
+                "**** ",
+                "*   *",
+                "**** ",
+                "*    ",
+                "*    "
+        }));
 
-                String.join("   ",
-                        "*     *",
-                        "*     *",
-                        "*     *",
-                        "*      "),
+        list.add(new CharacterPatternMap('S', new String[]{
+                " ****",
+                "*    ",
+                " *** ",
+                "    *",
+                "**** "
+        }));
 
-                String.join("   ",
-                        "*     *",
-                        "*     *",
-                        " ***** ",
-                        " ***** "),
+        String word = "OOPS";
 
-                String.join("   ",
-                        "*     *",
-                        "*     *",
-                        "*      ",
-                        "     * "),
+        Map<Character, String[]> map = new HashMap<>();
 
-                String.join("   ",
-                        "*     *",
-                        "*     *",
-                        "*      ",
-                        "     * "),
+        for (CharacterPatternMap cp : list) {
+            map.put(cp.getCharacter(), cp.getPattern());
+        }
 
-                String.join("   ",
-                        " ***** ",
-                        " ***** ",
-                        "*      ",
-                        " ***** ")
-        };
+        for (int i = 0; i < 5; i++) {
+            StringBuilder line = new StringBuilder();
 
-        for (String line : banner) {
+            for (char c : word.toCharArray()) {
+                line.append(map.get(c)[i]).append("  ");
+            }
+
             System.out.println(line);
         }
     }
