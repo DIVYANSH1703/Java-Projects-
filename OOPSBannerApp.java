@@ -1,55 +1,51 @@
+import java.util.*;
 
 public class OOPSBannerApp {
 
-    public static void main(String[] args) {
+    public static void renderBanner(String word, Map<Character, String[]> map) {
 
-        String[] banner = {
+        for (int i = 0; i < 5; i++) {
+            StringBuilder line = new StringBuilder();
 
-                String.join("   ",
-                        " ***** ",
-                        " ***** ",
-                        " ***** ",
-                        " ***** "),
+            for (char c : word.toCharArray()) {
+                String[] pattern = map.get(c);
+                line.append(pattern[i]).append("  ");
+            }
 
-                String.join("   ",
-                        "*     *",
-                        "*     *",
-                        "*     *",
-                        "*      "),
-
-                String.join("   ",
-                        "*     *",
-                        "*     *",
-                        "*     *",
-                        "*      "),
-
-                String.join("   ",
-                        "*     *",
-                        "*     *",
-                        " ***** ",
-                        " ***** "),
-
-                String.join("   ",
-                        "*     *",
-                        "*     *",
-                        "*      ",
-                        "     * "),
-
-                String.join("   ",
-                        "*     *",
-                        "*     *",
-                        "*      ",
-                        "     * "),
-
-                String.join("   ",
-                        " ***** ",
-                        " ***** ",
-                        "*      ",
-                        " ***** ")
-        };
-
-        for (String line : banner) {
             System.out.println(line);
         }
+    }
+
+    public static void main(String[] args) {
+
+        Map<Character, String[]> patterns = new HashMap<>();
+
+        patterns.put('O', new String[]{
+                " *** ",
+                "*   *",
+                "*   *",
+                "*   *",
+                " *** "
+        });
+
+        patterns.put('P', new String[]{
+                "**** ",
+                "*   *",
+                "**** ",
+                "*    ",
+                "*    "
+        });
+
+        patterns.put('S', new String[]{
+                " ****",
+                "*    ",
+                " *** ",
+                "    *",
+                "**** "
+        });
+
+        String word = "OOPS";
+
+        renderBanner(word, patterns);
     }
 }
